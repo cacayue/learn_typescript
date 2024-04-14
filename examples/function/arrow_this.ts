@@ -5,8 +5,10 @@ interface UIElement {
 class Handler {
   type: string
 
-  onClickBad(this: Handler, e: Event){
-    this.type = e.type
+  onClickBad(this: void, e: Event){
+    // this.type = e.type
+    console.log('cant use this');
+    
   }
 }
 
