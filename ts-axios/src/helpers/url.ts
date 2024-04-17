@@ -17,7 +17,6 @@ export function buildURL(url: string, params?:any): string {
   }
 
   const parts: string[] = [];
-
   Object.keys(params).forEach(key => {
     const val = params[key];
     if (val == null || typeof val === 'undefined') {
@@ -37,16 +36,15 @@ export function buildURL(url: string, params?:any): string {
       }
       parts.push(`${encode(key)}=${encode(v)}`);
     })
-
-    let serializedParams = parts.join('&');
-    if (serializedParams) {
+  });
+  let serializedParams = parts.join('&');
+  if (serializedParams) {
       // 处理hash：/base/get#hash
       const markIndex = url.indexOf('#')
       if (markIndex !== -1) {
         url = url.slice(0, markIndex)
       } 
       url += (url.indexOf('?') === -1 ? '?': '&') + serializedParams 
-    }
-  });
+  }
   return url;
 }

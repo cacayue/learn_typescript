@@ -32,6 +32,12 @@ router.get('/simple/get', function(req, res) {
   })
 })
 
+router.get('/base/get', function(req, res) {
+  res.json({
+    msg: `hello build url`
+  })
+})
+
 app.use(router)
 
 const port = process.env.PORT || 8081
