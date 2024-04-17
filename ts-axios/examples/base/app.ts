@@ -17,6 +17,9 @@ axios({
 axios({
   method: 'post',
   url: '/base/post',
+  headers: {
+    'content-type': 'application/json;charset=utf-8'
+  },
   data: {
     a: 1,
     b: 2
