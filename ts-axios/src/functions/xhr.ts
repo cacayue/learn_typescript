@@ -1,3 +1,4 @@
+import { parseHeaders } from "../helpers/headers";
 import { AxiosHttpRequestConfig, AxiosPromise, AxiosResponse } from "../types";
 import { contentLowcaseKey } from "../types/const";
 
@@ -21,7 +22,7 @@ export default function xhr(config: AxiosHttpRequestConfig): AxiosPromise {
           return;
         }
         // 获取responseHeaders
-        const responseHeaders = oReq.getAllResponseHeaders();
+        const responseHeaders = parseHeaders(oReq.getAllResponseHeaders());
         // 获取返回数据（返回数据类型不为text返回响应内容，否则返回文本）
         const responseData = responseType && responseType !== 'text' ? oReq.response : oReq.responseText
         // 构建响应数据
