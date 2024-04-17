@@ -5,6 +5,6 @@ export default function xhr(config: AxiosHttpRequestConfig){
 
   let oReq = new XMLHttpRequest();
   // 打开异步请求
-  oReq.open(method, url, true);
-  oReq.send();
+  oReq.open(method.toUpperCase(), url, true);
+  oReq.send(data);
 }
