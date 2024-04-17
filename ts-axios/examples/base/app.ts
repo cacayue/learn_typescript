@@ -24,6 +24,20 @@ axios({
     a: 1,
     b: 2
   }
+}).then((res) => {
+  console.log(res)
+})
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  responseType: 'json',
+  data: {
+    a: 3,
+    b: 5
+  }
+}).then((res) => {
+  console.log(res)
 })
 
 const paramsString = 'q=URLUtils.searchParams&topic=api'
