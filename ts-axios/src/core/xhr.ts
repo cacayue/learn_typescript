@@ -14,7 +14,7 @@ export default function xhr(config: AxiosHttpRequestConfig): AxiosPromise {
       }
 
       // 打开异步请求
-      oReq.open(method.toUpperCase(), url, true);
+      oReq.open(method.toUpperCase(), url!, true);
 
 
       oReq.onerror = () => {
