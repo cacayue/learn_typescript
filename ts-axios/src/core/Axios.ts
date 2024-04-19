@@ -3,7 +3,16 @@ import dispatchRequest from "./dispatchRequest";
 
 export default class Axios{
 
-  request(config: AxiosHttpRequestConfig): AxiosPromise {
+  request(url?: any, config?: any): AxiosPromise {
+    if (typeof url === 'string') {
+      if (!config) {
+        config = {}
+      }
+      config.url = url;
+    }else{
+      config = url;
+    }
+
     return dispatchRequest(config);
   }
 
