@@ -79,7 +79,6 @@ export default function xhr(config: AxiosHttpRequestConfig): AxiosPromise {
             oReq,
             response
           ))
-          reject(new Error());
         }
       }
       

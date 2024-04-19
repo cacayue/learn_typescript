@@ -1,4 +1,4 @@
-import axios from '../../src/index'
+import axios, { AxiosError, AxiosPromise } from '../../src/index'
 
 // axios({
 //   url: '/extend/post',
@@ -44,3 +44,32 @@ axios({
     msg: 'hello'
   }
 })
+
+interface ResponseData<T = any> {
+  code: number
+  result: T
+  message: string
+}
+
+interface User {
+  name: string,
+  age: number
+}
+
+function getUser<T>(): Promise<void | ResponseData<T>>{
+  return axios<ResponseData<T>>('/extend/user')
+  .then(res => {
+    return res?.data
+  }).catch((e: AxiosError) => {
+    console.log(e);
+  })
+}
+
+async function test() {
+  const user = await getUser<User>()
+  if (user) {
+    console.log(user.result.name);
+  }
+}
+
+test();
